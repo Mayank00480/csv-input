@@ -1,5 +1,6 @@
 import Papa from 'papaparse';
 import { useState,useRef } from 'react';
+import CsvData from './components/CsvData';
 
 function App() {
   const [data , setData] = useState([]);
@@ -39,6 +40,8 @@ function App() {
         <button onClick={handleButtonClick}>
         Upload
       </button>
+
+      {data.length > 0 && <CsvData data={data} />}
 
     </div>
   );
