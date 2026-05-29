@@ -1,12 +1,23 @@
 import "./CsvData.css";
+import { useEffect, useState } from "react";
+import CsvFilters from "./CsvFilters";
 
 function CsvData({ data }) {
-  if (!data || data.length === 0) return <p className="csv-empty">No data</p>;
+  
+   const [filteredData, setFilteredData] = useState(data);
 
+  useEffect(() => {
+    setFilteredData(data);
+  }, [data]);
   const columns = Object.keys(data[0]);
+    if (!data || data.length === 0) return <p className="csv-empty">No data</p>;
+
+  
 
   return (
     <div className="csv-card">
+      <CsvFilters data={data} onFilteredDataChange={setFilteredData} />
+
       <div className="csv-table-wrap">
         <table className="csv-table">
           <thead>
@@ -17,7 +28,7 @@ function CsvData({ data }) {
             </tr>
           </thead>
           <tbody>
-            {data.map((row, rowIndex) => (
+            {filteredData.map((row, rowIndex) => (
               <tr key={rowIndex}>
                 {columns.map((col, colIndex) => (
                   <td key={colIndex}>{row[col]}</td>
