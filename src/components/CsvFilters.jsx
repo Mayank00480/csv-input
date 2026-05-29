@@ -3,10 +3,17 @@ import ResetFiltersButton from "./ResetFiltersButton";
 
 function CsvFilters({ data, onFilteredDataChange }) {
   const columns = Object.keys(data[0] || {});
-  const firstCol = columns[0];
-  const secondCol = columns[1];
+  const firstCol = columns[3];
+  const secondCol = columns[4];
 
   const [filters, setFilters] = useState({ firstValue: "", secondValue: "" });
+
+  const formatLabel = (value) =>
+    value
+      ? value
+          .replace(/_/g, " ")
+          .replace(/\b\w/g, (char) => char.toUpperCase())
+      : value;
 
   useEffect(() => {
     setFilters({ firstValue: "", secondValue: "" });
@@ -49,7 +56,7 @@ function CsvFilters({ data, onFilteredDataChange }) {
         flexWrap: "wrap",
         gap: "1rem",
         marginBottom: "1.2rem",
-        alignItems: "center",
+        alignItems: "flex-end",
       }}
     >
       {firstCol && (
@@ -60,9 +67,10 @@ function CsvFilters({ data, onFilteredDataChange }) {
             gap: "0.35rem",
             fontSize: "13px",
             color: "#5f5488",
+            fontWeight: 600,
           }}
         >
-          {firstCol}
+          {formatLabel(firstCol)}
           <select
             value={filters.firstValue}
             onChange={(event) =>
@@ -95,9 +103,10 @@ function CsvFilters({ data, onFilteredDataChange }) {
             gap: "0.35rem",
             fontSize: "13px",
             color: "#5f5488",
+            fontWeight: 600,
           }}
         >
-          {secondCol}
+          {formatLabel(secondCol)}
           <select
             value={filters.secondValue}
             onChange={(event) =>
