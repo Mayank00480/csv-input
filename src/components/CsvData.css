@@ -1,0 +1,133 @@
+/* Card wrapper */
+.csv-card {
+  background: #ffffff;
+  border: 1px solid #e8e6f0;
+  border-radius: 18px;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(30, 32, 72, 0.08);
+}
+
+/* Scrollable table container */
+.csv-table-wrap {
+  width: 100%;
+  max-height: 600px;
+  overflow-x: auto;
+  overflow-y: auto;
+  padding-bottom: 0.6rem;
+  
+  border: 1px solid #ebe9f3;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.csv-table-wrap::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.csv-table-wrap::-webkit-scrollbar-track {
+  background: #f4f3f8;
+  border-radius: 999px;
+}
+
+.csv-table-wrap::-webkit-scrollbar-thumb {
+  background: #c1b8e7;
+  border-radius: 999px;
+}
+
+.csv-table-wrap::-webkit-scrollbar-thumb:hover {
+  background: #9d89db;
+}
+
+/* Table base */
+.csv-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: #ffffff;
+}
+
+/* ── Header ── */
+.csv-table thead tr {
+  background-color: #f4f4f6;
+}
+
+.csv-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5d5485;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-bottom: 1px solid #e7e4ee;
+  background: #f4f4f6;
+}
+
+.csv-table thead th:first-child {
+  border-left: 1px solid #e8e6f0;
+}
+
+.csv-table thead th:last-child {
+  border-right: 1px solid #e8e6f0;
+}
+
+/* ── Body rows ── */
+.csv-table tbody tr {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.csv-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.csv-table tbody tr:nth-child(even) {
+  background-color: #faf8ff;
+}
+
+.csv-table tbody tr:hover {
+  background-color: #f3efff;
+}
+
+.csv-table tbody td {
+  padding: 16px 18px;
+  color: #1f1b33;
+  border-bottom: 1px solid #f0eef6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.csv-table tbody td:first-child {
+  font-weight: 600;
+  color: #392f5a;
+}
+
+.csv-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.csv-table tbody td:last-child {
+  text-align: right;
+}
+
+/* Empty state */
+.csv-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #888096;
+  font-size: 14px;
+}
